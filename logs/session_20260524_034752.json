@@ -1,0 +1,133 @@
+[
+  {
+    "timestamp": "2026-05-24T03:47:52.203145",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I want a computer that I can game on and work on at the same time, I do a lot of traveling and a lot of machine learning, my budget is around 9000dh",
+      "device_type_override": "desktop",
+      "budget_max": 1200.0,
+      "use_case_override": "gaming",
+      "budget_tier_override": "mid",
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:52.203301",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I want a computer that I can game on and work on at the same time, I do a lot of traveling and a lot of machine learning, my budget is around 9000dh"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.418646",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "machine_learning",
+        "confidence": 0.2522
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.6775
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.5928
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.418836",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.2522
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.418942",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.6775
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.419152",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.5928
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.419407",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": true,
+        "device_type": true,
+        "budget_tier": true
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.419591",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.420326",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1160
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.420639",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.420740",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case",
+        "device_type",
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:47:53.420836",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

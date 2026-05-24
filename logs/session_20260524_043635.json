@@ -1,0 +1,68 @@
+[
+  {
+    "timestamp": "2026-05-24T04:36:35.925513",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I want a PC",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:36:35.925714",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I want a PC"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:36:36.728769",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "music_production",
+        "confidence": 0.4212
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.904
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.5162
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:36:36.728973",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.4212
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:36:36.729070",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.5162
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:36:36.729181",
+    "agent": "orchestrator",
+    "action": "input_rejected",
+    "details": {
+      "reason": "Confidence too low: avg=0.61 use_case=0.42"
+    }
+  }
+]

@@ -1,0 +1,226 @@
+[
+  {
+    "timestamp": "2026-05-24T04:07:30.561735",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a powerful gaming PC that has RGB lights, that I can use to travel with, budget is unlimited",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.563002",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a powerful gaming PC that has RGB lights, that I can use to travel with, budget is unlimited"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.629913",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.9225
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.7331
+      },
+      "budget_tier": {
+        "label": "high",
+        "confidence": 0.562
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.630149",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.7331
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.630280",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.562
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.630416",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.630523",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.631098",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 2290
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.631435",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total MAD 22,900 exceeds MAD 12,000 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.631545",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total MAD 22,900 exceeds MAD 12,000 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.631662",
+    "agent": "orchestrator",
+    "action": "budget_relaxed",
+    "details": {
+      "new_budget_max": 1440.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.631771",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_2",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1440.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.632249",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 2290
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.632562",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total MAD 22,900 exceeds MAD 14,400 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.632689",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total MAD 22,900 exceeds MAD 14,400 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.632840",
+    "agent": "orchestrator",
+    "action": "budget_relaxed",
+    "details": {
+      "new_budget_max": 1728.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.632978",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_3",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1728.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.633424",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 2290
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.633756",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total MAD 22,900 exceeds MAD 17,280 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.633921",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total MAD 22,900 exceeds MAD 17,280 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:07:30.634083",
+    "agent": "orchestrator",
+    "action": "budget_relaxed",
+    "details": {
+      "new_budget_max": 2073.6
+    }
+  }
+]

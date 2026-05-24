@@ -1,0 +1,113 @@
+[
+  {
+    "timestamp": "2026-05-24T03:24:41.375135",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a desktop for gaming",
+      "device_type_override": "desktop",
+      "budget_max": 1200.0,
+      "use_case_override": "gaming",
+      "budget_tier_override": "mid",
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:41.375459",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a desktop for gaming"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:42.562131",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.7966
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.9485
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.7099
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:42.562308",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.7099
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:42.562400",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": true,
+        "device_type": true,
+        "budget_tier": true
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:42.562495",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:42.563161",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1160
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:42.563498",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:42.563620",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T03:24:42.563737",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

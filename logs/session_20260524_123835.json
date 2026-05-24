@@ -1,0 +1,68 @@
+[
+  {
+    "timestamp": "2026-05-24T12:38:35.176070",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I want a gaming pc for traveling",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:38:35.177885",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I want a gaming pc for traveling"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:38:36.765042",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.8711
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.549
+      },
+      "budget_tier": {
+        "label": "low",
+        "confidence": 0.4314
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:38:36.765255",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.549
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:38:36.765342",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.4314
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:38:36.765427",
+    "agent": "orchestrator",
+    "action": "input_rejected",
+    "details": {
+      "reason": "Confidence too low: avg=0.62 use_case=0.87"
+    }
+  }
+]

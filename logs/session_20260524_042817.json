@@ -1,0 +1,123 @@
+[
+  {
+    "timestamp": "2026-05-24T04:28:17.898476",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "euirhgkldjfg",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:17.898649",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "euirhgkldjfg"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.838464",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.2273
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.8642
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.5374
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.838623",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.2273
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.838717",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.5374
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.838802",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.838928",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.839455",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1160
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.839742",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.839842",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case",
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:28:18.839939",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

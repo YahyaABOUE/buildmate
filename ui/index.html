@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#070709;--bg2:#0d0d11;--bg3:#12121a;
+  --accent:#c8ff00;--accent2:#a8d800;
+  --white:#f0eee8;--muted:#55556a;--border:#1a1a24;
+  --red:#ff4455;--yellow:#ffd000;
+}
+html,body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;height:100%;overflow:hidden;}
+#bm{position:relative;width:100vw;height:100vh;overflow:hidden;}
+
+
+/* PAGES */
+.pg{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(30px);transition:opacity .55s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1);overflow-y:auto;}
+.pg.on{opacity:1;pointer-events:all;transform:translateY(0);}
+.pg.out{opacity:0;transform:translateY(-30px);}
+
+/* NAV */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 52px;border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:10;}
+.logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;letter-spacing:-1px;}
+.logo em{font-style:italic;color:var(--accent);}
+.nav-r{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+
+/* PROGRESS */
+.prog{height:2px;background:var(--border);flex-shrink:0;}
+.prog-f{height:100%;background:var(--accent);transition:width .6s cubic-bezier(.4,0,.2,1);}
+
+/* LANDING */
+.land-g{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0;}
+.land-l{padding:60px 52px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);}
+.big-title{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,6rem);font-weight:900;line-height:.88;letter-spacing:-4px;margin-bottom:28px;}
+.big-title em{font-style:italic;color:var(--accent);}
+.land-desc{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);line-height:2;max-width:400px;margin-bottom:44px;}
+.land-desc strong{color:var(--white);}
+.btn-start{display:inline-flex;align-items:center;gap:14px;background:var(--accent);color:var(--bg);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;font-weight:500;padding:17px 34px;border:none;cursor:pointer;transition:all .2s;}
+.btn-start:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 14px 40px rgba(200,255,0,.2);}
+.arr{transition:transform .2s;display:inline-block;}
+.btn-start:hover .arr{transform:translateX(5px);}
+.land-r{padding:60px 52px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;}
+.proj-badge{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+.proj-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;letter-spacing:-1px;margin-bottom:6px;}
+.proj-sub{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:2px;color:var(--muted);margin-bottom:32px;}
+.proj-desc{font-size:.85rem;color:var(--muted);line-height:1.9;margin-bottom:32px;border-left:2px solid var(--border);padding-left:18px;}
+.proj-desc strong{color:var(--white);}
+.team-lbl{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.team-g{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px;}
+.team-c{background:var(--bg2);border:1px solid var(--border);padding:12px 14px;transition:border-color .2s;}
+.team-c:hover{border-color:var(--accent);}
+.team-n{font-size:.8rem;font-weight:500;margin-bottom:3px;}
+.team-r{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.tech-row{display:flex;gap:6px;flex-wrap:wrap;}
+.tech-pill{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);color:var(--muted);}
+
+/* QUESTION PAGES */
+.q-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 52px;max-width:900px;margin:0 auto;width:100%;}
+.q-num{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.q-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:900;line-height:.95;letter-spacing:-2px;margin-bottom:10px;}
+.q-title em{font-style:italic;color:var(--accent);}
+.q-sub{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:2px;margin-bottom:36px;}
+
+/* DEVICE CARDS */
+.dev-g{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px;}
+.dev-c{background:var(--bg2);border:1px solid var(--border);padding:36px 32px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;}
+.dev-c::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(200,255,0,.06),transparent 70%);opacity:0;transition:opacity .3s;}
+.dev-c:hover::after,.dev-c.sel::after{opacity:1;}
+.dev-c:hover,.dev-c.sel{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 18px 50px rgba(200,255,0,.08);}
+.dev-c.sel{background:var(--bg3);}
+.dev-chk{position:absolute;top:14px;right:14px;width:22px;height:22px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--bg);opacity:0;transition:opacity .2s;font-weight:700;}
+.dev-c.sel .dev-chk{opacity:1;}
+.dev-icon{font-size:2.8rem;margin-bottom:18px;}
+.dev-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;margin-bottom:8px;}
+.dev-desc{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);line-height:1.8;}
+
+/* USE CASE */
+.uc-g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:36px;}
+.uc-c{background:var(--bg2);border:1px solid var(--border);padding:22px 18px;cursor:pointer;transition:all .2s;text-align:center;position:relative;}
+.uc-c:hover,.uc-c.sel{border-color:var(--accent);background:var(--bg3);transform:translateY(-3px);}
+.uc-icon{font-size:1.8rem;margin-bottom:10px;}
+.uc-name{font-size:.85rem;font-weight:600;margin-bottom:5px;}
+.uc-desc{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--muted);line-height:1.6;}
+.uc-chk{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:2px;color:var(--accent);opacity:0;transition:opacity .2s;margin-top:8px;display:block;}
+.uc-c.sel .uc-chk{opacity:1;}
+
+/* BUDGET */
+.bud-g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px;}
+.tier-c{background:var(--bg2);border:1px solid var(--border);padding:24px 20px;cursor:pointer;transition:all .2s;}
+.tier-c:hover,.tier-c.sel{border-color:var(--accent);background:var(--bg3);}
+.tier-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;margin-bottom:6px;}
+.tier-range{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--accent);margin-bottom:6px;}
+.tier-desc{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--muted);line-height:1.7;}
+.sl-wrap{margin-bottom:36px;}
+.sl-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.sl-lbl{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.sl-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--accent);letter-spacing:-1px;}
+input[type=range]{width:100%;height:2px;background:var(--border);appearance:none;outline:none;cursor:pointer;margin:8px 0;}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:16px;height:16px;background:var(--accent);border-radius:50%;transition:transform .2s;cursor:grab;}
+input[type=range]::-webkit-slider-thumb:active{transform:scale(1.4);cursor:grabbing;}
+
+/* PREFERENCES */
+.pref-g{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px;}
+.pref-i{background:var(--bg2);border:1px solid var(--border);padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;}
+.pref-i:hover,.pref-i.sel{border-color:var(--accent);}
+.pref-i.sel{background:var(--bg3);}
+.pref-box{width:14px;height:14px;border:1px solid var(--muted);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;transition:all .2s;}
+.pref-i.sel .pref-box{background:var(--accent);border-color:var(--accent);color:var(--bg);}
+.pref-txt{font-size:.8rem;}
+textarea.bm-ta{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--white);padding:14px;font-family:'DM Mono',monospace;font-size:.7rem;line-height:1.8;resize:none;outline:none;transition:border-color .2s;margin-bottom:28px;}
+textarea.bm-ta:focus{border-color:var(--accent);}
+textarea.bm-ta::placeholder{color:var(--muted);}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:14px;align-items:center;}
+.btn-next{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--bg);font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:4px;text-transform:uppercase;font-weight:500;padding:15px 28px;border:none;cursor:pointer;transition:all .2s;}
+.btn-next:hover{background:var(--accent2);transform:translateY(-2px);}
+.btn-next:disabled{opacity:.35;cursor:not-allowed;transform:none;}
+.btn-back{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;padding:15px 20px;border:1px solid var(--border);cursor:pointer;transition:all .2s;}
+.btn-back:hover{border-color:var(--muted);color:var(--white);}
+
+/* LOADING PAGE */
+.load-wrap{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0;}
+.load-left{padding:60px 52px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
+.load-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:.95;letter-spacing:-2px;margin-bottom:16px;}
+.load-title em{font-style:italic;color:var(--accent);}
+.load-sub{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:3px;color:var(--muted);margin-bottom:48px;}
+.overall-bar{height:2px;background:var(--border);margin-bottom:8px;border-radius:1px;overflow:hidden;}
+.overall-fill{height:100%;background:var(--accent);width:0%;transition:width .8s cubic-bezier(.4,0,.2,1);}
+.overall-pct{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:2px;color:var(--muted);}
+
+.load-right{padding:60px 52px;display:flex;flex-direction:column;justify-content:center;}
+.terminal{background:var(--bg2);border:1px solid var(--border);padding:20px;font-family:'DM Mono',monospace;font-size:.65rem;line-height:2;color:var(--muted);height:280px;overflow-y:auto;position:relative;}
+.terminal::before{content:'// BUILDMATE PIPELINE LOG';display:block;color:var(--accent);margin-bottom:12px;letter-spacing:2px;}
+.t-line{opacity:0;transform:translateX(-8px);transition:opacity .3s,transform .3s;}
+.t-line.show{opacity:1;transform:translateX(0);}
+.t-green{color:var(--accent);}
+.t-yellow{color:var(--yellow);}
+.t-white{color:var(--white);}
+.t-cursor{display:inline-block;width:8px;height:12px;background:var(--accent);animation:blink .8s infinite;vertical-align:middle;margin-left:4px;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* AGENT CARDS */
+.agents-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:1px;}
+.agent-card{background:var(--bg2);padding:20px 16px;text-align:center;transition:background .3s;}
+.agent-card.active{background:var(--bg3);}
+.agent-card.done{background:var(--bg2);}
+.agent-avatar{font-size:1.8rem;margin-bottom:10px;filter:grayscale(1);transition:filter .3s;}
+.agent-card.active .agent-avatar{filter:grayscale(0);}
+.agent-card.done .agent-avatar{filter:grayscale(0);opacity:.6;}
+.agent-name{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.agent-status{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);line-height:1.6;min-height:36px;transition:color .3s;}
+.agent-card.active .agent-status{color:var(--accent);}
+.agent-card.done .agent-status{color:var(--muted);}
+.agent-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-top:8px;transition:background .3s;}
+.agent-card.active .agent-dot{background:var(--accent);animation:pulse 1s infinite;}
+.agent-card.done .agent-dot{background:var(--accent);animation:none;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,255,0,.5);}50%{box-shadow:0 0 0 6px rgba(200,255,0,0);}}
+
+/* SPEECH BUBBLE */
+.bubble-wrap{margin-top:16px;min-height:48px;}
+.bubble{display:inline-block;background:var(--bg3);border:1px solid var(--border);border-left:2px solid var(--accent);padding:10px 14px;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--white);line-height:1.6;opacity:0;transform:translateY(8px);transition:all .4s;max-width:100%;}
+.bubble.show{opacity:1;transform:translateY(0);}
+.bubble-agent{font-size:.52rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+
+/* RESULTS PAGE */
+.res-scroll{flex:1;overflow-y:auto;padding:48px 52px;}
+.res-inner{max-width:820px;margin:0 auto;}
+.res-eyebrow{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.res-headline{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:18px;}
+.res-headline em{font-style:italic;color:var(--accent);}
+.res-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.res-tag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;}
+.res-tag-g{border:1px solid rgba(200,255,0,.3);color:var(--accent);background:rgba(200,255,0,.05);}
+.res-tag-w{border:1px solid rgba(255,208,0,.3);color:var(--yellow);background:rgba(255,208,0,.05);}
+.res-sec{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);padding-bottom:12px;border-bottom:1px solid var(--border);margin:36px 0 0;}
+.res-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:1px;}
+.res-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:1px;}
+.res-cell{background:var(--bg2);padding:16px;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s;}
+.res-cell.show{opacity:1;transform:translateY(0);}
+.res-ck{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.res-cv{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;}
+.res-cv-sm{font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:400;}
+.res-bar{height:2px;background:var(--border);margin-top:8px;}
+.res-fill{height:100%;width:0%;transition:width 1s cubic-bezier(.4,0,.2,1);}
+.res-pct{font-family:'DM Mono',monospace;font-size:.52rem;margin-top:5px;}
+
+/* COMPONENT ROWS — flip card */
+.flip-wrap{perspective:1000px;margin-bottom:0;}
+.flip-inner{position:relative;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;}
+.flip-wrap:hover .flip-inner{transform:rotateX(8deg);}
+.res-brow{display:grid;grid-template-columns:76px 1fr auto;gap:18px;align-items:start;padding:20px 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(-16px);transition:opacity .4s,transform .4s;}
+.res-brow.show{opacity:1;transform:translateX(0);}
+.res-brow:last-child{border-bottom:none;}
+.res-btype{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);padding-top:3px;}
+.res-bname{font-size:.88rem;font-weight:500;margin-bottom:5px;}
+.res-bexp{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);line-height:1.75;}
+.res-bprice{font-family:'DM Mono',monospace;font-size:.82rem;color:var(--accent);font-weight:500;white-space:nowrap;}
+
+/* TOTAL — counter animation */
+.res-total{display:grid;grid-template-columns:1fr auto;align-items:center;padding:26px 30px;background:var(--bg2);border:1px solid var(--border);margin-top:32px;position:relative;opacity:0;transition:opacity .5s .8s;}
+.res-total.show{opacity:1;}
+.res-total::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);}
+.res-total-lbl{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);}
+.res-total-amt{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--accent);letter-spacing:-2px;}
+
+/* COMPAT ROWS */
+.res-crow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.6rem;opacity:0;transform:translateX(-10px);transition:opacity .3s,transform .3s;}
+.res-crow.show{opacity:1;transform:translateX(0);}
+.res-crow:last-child{border-bottom:none;}
+.res-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.res-exp{background:var(--bg2);border:1px solid var(--border);padding:20px;margin-top:1px;font-family:'DM Mono',monospace;font-size:.63rem;color:var(--muted);line-height:2;white-space:pre-line;}
+.res-actions{display:flex;gap:14px;margin-top:44px;padding-top:32px;border-top:1px solid var(--border);padding-bottom:48px;}
+.btn-restart{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--muted);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;padding:14px 22px;border:1px solid var(--border);cursor:pointer;transition:all .2s;}
+.btn-restart:hover{border-color:var(--muted);color:var(--white);}
+.res-err{background:rgba(255,68,85,.06);border:1px solid rgba(255,68,85,.3);padding:28px;font-family:'DM Mono',monospace;font-size:.68rem;color:var(--red);letter-spacing:2px;line-height:1.8;}
+
+/* LAPTOP SPECS */
+.laptop-header{background:var(--bg2);border:1px solid var(--border);padding:28px;margin-top:1px;display:flex;justify-content:space-between;align-items:center;opacity:0;transition:opacity .5s;}
+.laptop-header.show{opacity:1;}
+.laptop-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;}
+.laptop-price{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--accent);}
+#bm { z-index: 9999; background: var(--bg); }
+.pg { z-index: 9999; }
+</style>
+</head>
+<body>
+<div id="bm">
+
+<!-- PAGE 0: LANDING -->
+<div class="pg on" id="p0">
+  <nav class="nav">
+    <div class="logo">Build<em>Mate</em></div>
+    
+  </nav>
+  <div class="land-g">
+    <div class="land-l">
+      
+      <div class="big-title">Build<br><em>Mate</em></div>
+      <div class="land-desc">
+        An intelligent PC recommendation engine powered by
+        <strong>fine-tuned DistilBERT</strong>, multi-agent orchestration
+        via <strong>CrewAI</strong>, and deterministic hardware
+        compatibility checking.<br><br>
+        Classifies your needs, recommends the best build,
+        validates every component, and requires your approval —
+        a true <strong>human-in-the-loop</strong> pipeline.
+      </div>
+      <button class="btn-start" onclick="goTo(1)">
+        Get Started <span class="arr">→</span>
+      </button>
+    </div>
+    <div class="land-r">
+      
+
+      <div class="proj-title">BRIM</div>
+      <div class="proj-sub">Groupe · École Supérieure d'Informatique et du Numérique</div>
+      <div class="proj-desc">
+        BuildMate is a <strong>multi-agent AI system</strong> that helps users find
+        the most suitable PC build or laptop according to their needs,
+        preferences, and budget. The system combines natural language
+        understanding, deep learning, deterministic recommendation logic,
+        and multi-agent orchestration to deliver explainable, validated
+        hardware recommendations.
+      </div>
+      <div class="team-lbl">Team Members</div>
+      <div class="team-g">
+        <div class="team-c"><div class="team-n">Yahya ABOU EL AZIZ</div><div class="team-r">AI Engineer</div></div>
+        <div class="team-c"><div class="team-n">Mehdi GUELLIDA</div><div class="team-r">AI Engineer</div></div>
+        <div class="team-c"><div class="team-n">Younes EL MAJDOUBI EL IDRISSI</div><div class="team-r">AI Engineer</div></div>
+
+      </div>
+      <div class="tech-row">
+        <span class="tech-pill">DistilBERT</span>
+        <span class="tech-pill">PyTorch 2.0</span>
+        <span class="tech-pill">CrewAI</span>
+        <span class="tech-pill">Gradio</span>
+        <span class="tech-pill">Gemini API</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 1: FREE TEXT SHORTCUT -->
+<div class="pg" id="p1">
+  <nav class="nav">
+    <div class="logo">Build<em>Mate</em></div>
+    <div class="nav-r">Quick Start</div>
+  </nav>
+  <div class="prog"><div class="prog-f" style="width:20%"></div></div>
+  <div class="q-wrap">
+    <div class="q-num">Quick Start</div>
+    <div class="q-title">Describe what<br>you <em>need.</em></div>
+    <div class="q-sub">Let the AI figure out the rest — or configure manually below</div>
+    <textarea class="bm-ta" id="ta-quick" rows="4"
+      placeholder="e.g. I travel a lot and edit videos on a tight budget&#10;e.g. I want a powerful silent gaming desktop&#10;e.g. Best laptop for machine learning under $1500"></textarea>
+    <div class="btn-row" style="margin-bottom:24px;">
+      <button class="btn-next" onclick="quickAnalyze()">Analyze &amp; Build →</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+      <span style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);">or configure manually</span>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(0)">← Back</button>
+      <button class="btn-next" style="background:transparent;color:var(--muted);border:1px solid var(--border);" onclick="goTo(2)">Configure Step by Step →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: DEVICE -->
+<div class="pg" id="p2">
+  <nav class="nav">
+    <div class="logo">Build<em>Mate</em></div>
+    <div class="nav-r">Step 1 of 4</div>
+  </nav>
+  <div class="prog"><div class="prog-f" style="width:25%"></div></div>
+  <div class="q-wrap">
+    <div class="q-num">01 — Device</div>
+    <div class="q-title">What are you<br>looking <em>for?</em></div>
+    <div class="q-sub">Choose the type of machine you need</div>
+    <div class="dev-g">
+      <div class="dev-c" id="dc-Desktop" onclick="selDev('Desktop')">
+        <div class="dev-chk">✓</div>
+        <div class="dev-icon">🖥</div>
+        <div class="dev-name">Desktop</div>
+        <div class="dev-desc">Maximum performance.<br>Fully customizable build.<br>Best price-to-performance.</div>
+      </div>
+      <div class="dev-c" id="dc-Laptop" onclick="selDev('Laptop')">
+        <div class="dev-chk">✓</div>
+        <div class="dev-icon">💻</div>
+        <div class="dev-name">Laptop</div>
+        <div class="dev-desc">Portable and compact.<br>All-in-one solution.<br>Best for mobility.</div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(1)">← Back</button>
+      <button class="btn-next" id="btn1" onclick="goTo(3)" disabled>Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: USE CASE -->
+<div class="pg" id="p3">
+  <nav class="nav">
+    <div class="logo">Build<em>Mate</em></div>
+    <div class="nav-r">Step 2 of 4</div>
+  </nav>
+  <div class="prog"><div class="prog-f" style="width:50%"></div></div>
+  <div class="q-wrap" style="max-width:940px;">
+    <div class="q-num">02 — Use Case</div>
+    <div class="q-title">What will you<br>use it <em>for?</em></div>
+    <div class="q-sub">Select your primary use case</div>
+    <div class="uc-g">
+      <div class="uc-c" onclick="selUC('Gaming',this)"><div class="uc-icon">🎮</div><div class="uc-name">Gaming</div><div class="uc-desc">High FPS · ray tracing<br>competitive play</div><span class="uc-chk">✓ Selected</span></div>
+      <div class="uc-c" onclick="selUC('Video Editing',this)"><div class="uc-icon">🎬</div><div class="uc-name">Video Editing</div><div class="uc-desc">4K timelines · rendering<br>color grading</div><span class="uc-chk">✓ Selected</span></div>
+      <div class="uc-c" onclick="selUC('Machine Learning',this)"><div class="uc-icon">🧠</div><div class="uc-name">Machine Learning</div><div class="uc-desc">Model training · CUDA<br>data pipelines</div><span class="uc-chk">✓ Selected</span></div>
+      <div class="uc-c" onclick="selUC('Office',this)"><div class="uc-icon">💼</div><div class="uc-name">Office</div><div class="uc-desc">Productivity · meetings<br>documents</div><span class="uc-chk">✓ Selected</span></div>
+      <div class="uc-c" onclick="selUC('3D Rendering',this)"><div class="uc-icon">🎲</div><div class="uc-name">3D Rendering</div><div class="uc-desc">Blender · CAD · VFX<br>animation</div><span class="uc-chk">✓ Selected</span></div>
+      <div class="uc-c" onclick="selUC('Music Production',this)"><div class="uc-icon">🎵</div><div class="uc-name">Music Production</div><div class="uc-desc">DAW · VSTs · mixing<br>recording</div><span class="uc-chk">✓ Selected</span></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(2)">← Back</button>
+      <button class="btn-next" id="btn2" onclick="goTo(4)" disabled>Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: BUDGET -->
+<div class="pg" id="p4">
+  <nav class="nav">
+    <div class="logo">Build<em>Mate</em></div>
+    <div class="nav-r">Step 3 of 4</div>
+  </nav>
+  <div class="prog"><div class="prog-f" style="width:75%"></div></div>
+  <div class="q-wrap">
+    <div class="q-num">03 — Budget</div>
+    <div class="q-title">What's your<br><em>budget?</em></div>
+    <div class="q-sub">Select a tier and set your maximum</div>
+    <div class="bud-g">
+      <div class="tier-c" id="tc-Low" onclick="selTier('Low')"><div class="tier-name">Low</div><div class="tier-range">MAD 3,000 — 8,000</div><div class="tier-desc">Essential components.<br>Great value builds.</div></div>
+      <div class="tier-c sel" id="tc-Mid" onclick="selTier('Mid')"><div class="tier-name">Mid</div><div class="tier-range">MAD 8,000 — 18,000</div><div class="tier-desc">Balanced performance.<br>Best for most users.</div></div>
+      <div class="tier-c" id="tc-High" onclick="selTier('High')"><div class="tier-name">High</div><div class="tier-range">MAD 18,000+</div><div class="tier-desc">No compromises.<br>Top-tier components.</div></div>
+    </div>
+    <div class="sl-wrap">
+      <div class="sl-top">
+        <span class="sl-lbl">Max Budget</span>
+        <span class="sl-val" id="sv">$1,200</span>
+      </div>
+      <input type="range" id="bsl" min="3000" max="50000" step="500" value="12000" oninput="updSl(this.value)">
+
+    </div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(3)">← Back</button>
+      <button class="btn-next" onclick="goTo(5)">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: PREFERENCES -->
+<div class="pg" id="p5">
+  <nav class="nav">
+    <div class="logo">Build<em>Mate</em></div>
+    <div class="nav-r">Step 4 of 4</div>
+  </nav>
+  <div class="prog"><div class="prog-f" style="width:100%"></div></div>
+  <div class="q-wrap">
+    <div class="q-num">04 — Preferences</div>
+    <div class="q-title">Any specific<br><em>needs?</em></div>
+    <div class="q-sub">Optional — helps refine your recommendation</div>
+    <div class="pref-g">
+      <div class="pref-i" onclick="togP(this,'Prefer quiet / low noise')"><div class="pref-box">✓</div><span class="pref-txt">Prefer quiet / low noise</span></div>
+      <div class="pref-i" onclick="togP(this,'Portability matters')"><div class="pref-box">✓</div><span class="pref-txt">Portability matters</span></div>
+      <div class="pref-i" onclick="togP(this,'Long battery life')"><div class="pref-box">✓</div><span class="pref-txt">Long battery life</span></div>
+      <div class="pref-i" onclick="togP(this,'Future-proof build')"><div class="pref-box">✓</div><span class="pref-txt">Future-proof build</span></div>
+      <div class="pref-i" onclick="togP(this,'Compact form factor')"><div class="pref-box">✓</div><span class="pref-txt">Compact form factor</span></div>
+      <div class="pref-i" onclick="togP(this,'RGB aesthetics')"><div class="pref-box">✓</div><span class="pref-txt">RGB aesthetics</span></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(4)">← Back</button>
+      <button class="btn-next" onclick="startGen()">Analyze &amp; Build →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: LOADING -->
+<div class="pg" id="p-load">
+  <nav class="nav">
+    <div class="logo">Build<em>Mate</em></div>
+    <div class="nav-r">Processing</div>
+  </nav>
+  <div class="load-wrap">
+    <div class="load-left">
+      <div class="load-title">Building your<br><em>recommendation</em></div>
+      <div class="load-sub">Multi-agent pipeline running</div>
+      <div class="overall-bar"><div class="overall-fill" id="overall-fill"></div></div>
+      <div class="overall-pct" id="overall-pct">0%</div>
+      <div style="margin-top:32px;" id="bubble-area">
+        <div class="bubble" id="bubble">
+          <div class="bubble-agent" id="bubble-agent"></div>
+          <span id="bubble-text"></span><span class="t-cursor"></span>
+        </div>
+      </div>
+    </div>
+    <div class="load-right">
+      <div style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Agent Status</div>
+      <div class="agents-grid" id="agents-grid">
+        <div class="agent-card" id="ac-nlp">
+          <div class="agent-avatar">🤖</div>
+          <div class="agent-name">NLP Agent</div>
+          <div class="agent-status" id="as-nlp">Standby</div>
+          <div class="agent-dot"></div>
+        </div>
+        <div class="agent-card" id="ac-rec">
+          <div class="agent-avatar">⚙️</div>
+          <div class="agent-name">Recommender</div>
+          <div class="agent-status" id="as-rec">Standby</div>
+          <div class="agent-dot"></div>
+        </div>
+        <div class="agent-card" id="ac-compat">
+          <div class="agent-avatar">🔍</div>
+          <div class="agent-name">Validator</div>
+          <div class="agent-status" id="as-compat">Standby</div>
+          <div class="agent-dot"></div>
+        </div>
+        <div class="agent-card" id="ac-orch">
+          <div class="agent-avatar">🧠</div>
+          <div class="agent-name">Orchestrator</div>
+          <div class="agent-status" id="as-orch">Standby</div>
+          <div class="agent-dot"></div>
+        </div>
+      </div>
+      <div style="margin-top:24px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Pipeline Log</div>
+        <div class="terminal" id="terminal"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: RESULT -->
+<div class="pg" id="p-res">
+  <nav class="nav">
+    <div class="logo">Build<em>Mate</em></div>
+    <div class="nav-r">Recommendation</div>
+  </nav>
+  <div class="res-scroll">
+    <div class="res-inner" id="res-content"></div>
+  </div>
+</div>
+
+</div><!-- #bm -->
+
+<script>
+const S = { device:null, useCase:null, budgetTier:'Mid', budgetMax:12000, prefs:[], text:'' };
+const USD_TO_MAD = 10;
+function toMAD(usd) {
+  return 'MAD ' + Math.round(usd * USD_TO_MAD).toLocaleString();
+}
+
+// PAGE TRANSITIONS
+function goTo(id) {
+  const pid = id==='load'?'p-load':id==='res'?'p-res':`p${id}`;
+  const cur = document.querySelector('#bm .pg.on');
+  if(cur){ cur.classList.add('out'); setTimeout(()=>cur.classList.remove('on','out'),550); }
+  setTimeout(()=>{ const nx=document.getElementById(pid); if(nx) nx.classList.add('on'); },120);
+}
+
+// DEVICE
+function selDev(d) {
+  S.device=d;
+  document.querySelectorAll('.dev-c').forEach(c=>c.classList.remove('sel'));
+  document.getElementById(`dc-${d}`).classList.add('sel');
+  document.getElementById('btn1').disabled=false;
+}
+
+// USE CASE
+function selUC(uc,el) {
+  S.useCase=uc;
+  document.querySelectorAll('.uc-c').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('btn2').disabled=false;
+}
+
+// BUDGET
+function selTier(t) {
+  S.budgetTier=t;
+  document.querySelectorAll('.tier-c').forEach(c=>c.classList.remove('sel'));
+  document.getElementById(`tc-${t}`).classList.add('sel');
+  const mids={Low:5500,Mid:12000,High:25000};
+  document.getElementById('bsl').value=mids[t];
+  updSl(mids[t]);
+}
+function updSl(v) {
+  S.budgetMax=parseInt(v);
+  document.getElementById('sv').textContent='MAD '+parseInt(v).toLocaleString();
+}
+
+// PREFERENCES
+function togP(el,p) {
+  el.classList.toggle('sel');
+  if(el.classList.contains('sel')) S.prefs.push(p);
+  else S.prefs=S.prefs.filter(x=>x!==p);
+}
+
+function quickAnalyze() {
+  const text = document.getElementById('ta-quick').value.trim();
+  if(!text) {
+    document.getElementById('ta-quick').style.borderColor = 'var(--red)';
+    setTimeout(()=>document.getElementById('ta-quick').style.borderColor='var(--border)',1500);
+    return;
+  }
+  S.text = text;
+  S.device = null;
+  S.useCase = null;
+  S.budgetTier = null;
+  S.budgetMax = S.budgetMax || 50000;
+  goTo('load');
+  setTimeout(() => runLoadAnim(() => callBackend()), 400);
+}
+
+// TERMINAL LOG
+function addLog(text, cls='') {
+  const t=document.getElementById('terminal');
+  const line=document.createElement('div');
+  line.className='t-line '+(cls||'');
+  line.textContent=text;
+  t.appendChild(line);
+  setTimeout(()=>line.classList.add('show'),50);
+  t.scrollTop=t.scrollHeight;
+}
+
+// AGENT ANIMATION
+function setAgent(id, status, isDone=false) {
+  const card=document.getElementById(`ac-${id}`);
+  const st=document.getElementById(`as-${id}`);
+  card.classList.remove('active','done');
+  if(!isDone) card.classList.add('active');
+  else card.classList.add('done');
+  if(st) st.textContent=status;
+}
+
+function setBubble(agent, text) {
+  const b=document.getElementById('bubble');
+  const ba=document.getElementById('bubble-agent');
+  const bt=document.getElementById('bubble-text');
+  b.classList.remove('show');
+  setTimeout(()=>{
+    ba.textContent=agent;
+    bt.textContent=text;
+    b.classList.add('show');
+  },200);
+}
+
+function setProgress(pct) {
+  document.getElementById('overall-fill').style.width=pct+'%';
+  document.getElementById('overall-pct').textContent=pct+'%';
+}
+
+// LOADING SEQUENCE
+function runLoadAnim(cb) {
+  const terminal=document.getElementById('terminal');
+  terminal.innerHTML='';
+  ['ac-nlp','ac-rec','ac-compat','ac-orch'].forEach(id=>{
+    const c=document.getElementById(id);
+    c.classList.remove('active','done');
+    const s=c.querySelector('.agent-status');
+    if(s) s.textContent='Standby';
+  });
+  setProgress(0);
+
+  const steps=[
+    {
+      agent:'nlp', pct:15,
+      bubble:['🤖 NLP Agent', 'Reading your input... analyzing intent...'],
+      logs:[
+        ['> Initializing NLP Classification Agent...','t-white'],
+        ['> Loading DistilBERT model from checkpoint...',''],
+        ['> Tokenizing user input...',''],
+        ['> Running forward pass...','t-yellow'],
+      ],
+      status:'Classifying intent'
+    },
+    {
+      agent:'nlp', pct:30,
+      bubble:['🤖 NLP Agent', 'Classification complete. Confidence scores computed.'],
+      logs:[
+        ['> use_case detected ✓','t-green'],
+        ['> device_type detected ✓','t-green'],
+        ['> budget_tier detected ✓','t-green'],
+        ['> Sending results to Orchestrator...','t-yellow'],
+      ],
+      status:'Complete ✓',
+      done:true
+    },
+    {
+      agent:'rec', pct:50,
+      bubble:['⚙️ Recommender', 'Querying hardware database for best matches...'],
+      logs:[
+        ['> Recommendation Agent activated','t-white'],
+        ['> Querying hardware database...',''],
+        ['> Filtering by use case and budget tier...',''],
+        ['> Selecting optimal components...','t-yellow'],
+      ],
+      status:'Building recommendation'
+    },
+    {
+      agent:'rec', pct:62,
+      bubble:['⚙️ Recommender', 'Build assembled. Calculating total price...'],
+      logs:[
+        ['> CPU selected ✓','t-green'],
+        ['> GPU selected ✓','t-green'],
+        ['> Motherboard, RAM, Storage, PSU, Case ✓','t-green'],
+        ['> Total price computed. Forwarding to Validator...','t-yellow'],
+      ],
+      status:'Complete ✓',
+      done:true
+    },
+    {
+      agent:'compat', pct:78,
+      bubble:['🔍 Validator', 'Running hardware compatibility checks...'],
+      logs:[
+        ['> Compatibility Agent activated','t-white'],
+        ['> Checking CPU socket vs motherboard...',''],
+        ['> Checking RAM type compatibility...',''],
+        ['> Validating PSU wattage vs TDP...','t-yellow'],
+      ],
+      status:'Validating build'
+    },
+    {
+      agent:'compat', pct:88,
+      bubble:['🔍 Validator', 'All checks passed. Build is compatible.'],
+      logs:[
+        ['> Socket match ✓','t-green'],
+        ['> RAM type match ✓','t-green'],
+        ['> PSU wattage sufficient ✓','t-green'],
+        ['> Budget validation ✓','t-green'],
+        ['> Build approved — forwarding to Orchestrator...','t-yellow'],
+      ],
+      status:'Complete ✓',
+      done:true
+    },
+    {
+      agent:'orch', pct:96,
+      bubble:['🧠 Orchestrator', 'Pipeline complete. Preparing recommendation for review...'],
+      logs:[
+        ['> Orchestrator finalizing pipeline...','t-white'],
+        ['> All agents completed successfully','t-green'],
+        ['> HITL checkpoint reached','t-yellow'],
+        ['> Recommendation ready for human approval.','t-white'],
+      ],
+      status:'Awaiting approval',
+      done:true
+    }
+  ];
+
+  let i=0;
+  function nextStep() {
+    if(i>=steps.length){ setProgress(100); setTimeout(cb,600); return; }
+    const step=steps[i];
+    setAgent(step.agent, step.status, step.done||false);
+    setBubble(step.bubble[0], step.bubble[1]);
+    setProgress(step.pct);
+    step.logs.forEach((log,li)=>{
+      setTimeout(()=>addLog(log[0],log[1]), li*180);
+    });
+    i++;
+    setTimeout(nextStep, step.logs.length*180+700);
+  }
+  setTimeout(nextStep,400);
+}
+
+// GENERATE
+function startGen() {
+  S.text = S.text || (document.getElementById('ta') ? document.getElementById('ta').value : '');
+  goTo('load');
+  setTimeout(() => runLoadAnim(() => callBackend()), 400);
+}
+
+// CALL BACKEND
+function callBackend() {
+  console.log("callBackend called with:", S);
+  fetch("http://localhost:7860/gradio_api/call/v2/run_buildmate", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      device_type: S.device,
+      use_case: S.useCase,
+      budget_tier: S.budgetTier,
+      budget_max: Math.round(S.budgetMax / USD_TO_MAD),
+      preferences_json: JSON.stringify(S.prefs),
+      free_text: S.text
+    })
+  })
+  .then(r => {
+    console.log("HTTP STATUS:", r.status);
+    return r.text();
+  })
+  .then(txt => {
+    console.log("RAW RESPONSE:", txt.substring(0, 500));
+    try {
+      const parsed = JSON.parse(txt);
+      console.log("PARSED:", parsed);
+      if(parsed.event_id) {
+        pollResult(parsed.event_id);
+      } else {
+        const raw = parsed.data ? parsed.data[0] : parsed;
+        const result = typeof raw === 'string' ? JSON.parse(raw) : raw;
+        renderResult(result);
+        goTo('res');
+      }
+    } catch(e) {
+      renderErr("Parse error: " + e.toString());
+      goTo('res');
+    }
+  })
+  .catch(err => {
+    console.log("FETCH ERROR:", err.toString());
+    renderErr("Fetch error: " + err.toString());
+    goTo('res');
+  });
+}
+
+function pollResult(eventId) {
+  fetch(`http://localhost:7860/gradio_api/call/run_buildmate/${eventId}`)
+  .then(r => r.text())
+  .then(txt => {
+    console.log("POLL RESPONSE:", txt);
+    const lines = txt.split('\n').filter(l => l.startsWith('data:'));
+    if(lines.length > 0) {
+      const data = JSON.parse(lines[lines.length-1].replace('data: ',''));
+      const raw = data[0];
+      const result = typeof raw === 'string' ? JSON.parse(raw) : raw;
+      console.log("FINAL RESULT:", result);
+      renderResult(result);
+      goTo('res');
+    } else {
+      setTimeout(()=>pollResult(eventId), 1000);
+    }
+  })
+  .catch(err => {
+    renderErr("Poll error: " + err.toString());
+    goTo('res');
+  });
+}
+
+// RENDER RESULT
+function animateCount(el, target, duration=1200) {
+  const start=Date.now();
+  const timer=setInterval(()=>{
+    const elapsed=Date.now()-start;
+    const progress=Math.min(elapsed/duration,1);
+    const ease=1-Math.pow(1-progress,3);
+    el.textContent='MAD '+Math.round(target*ease*USD_TO_MAD).toLocaleString();
+    if(progress>=1){ el.textContent=toMAD(target); clearInterval(timer); }
+  },16);
+}
+
+function stagger(selector, delay=80) {
+  document.querySelectorAll(selector).forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('show'), i*delay);
+  });
+}
+
+function renderResult(result) {
+  window._lastResult = result;
+  const el=document.getElementById('res-content');
+  if(!result.success){
+    el.innerHTML=`<div class="res-err">⚠ ERROR — ${result.error||'Unknown'}</div><div class="res-actions"><button class="btn-restart" onclick="restart()">← Start Over</button></div>`;
+    return;
+  }
+  if(!result.approved){
+    el.innerHTML=`<div style="text-align:center;padding:80px 0;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);">— Recommendation Rejected —</div><div class="res-actions"><button class="btn-restart" onclick="restart()">← Start Over</button></div>`;
+    return;
+  }
+
+  const rec=result.recommendation||{};
+  const compat=result.compatibility||{};
+  const cls=result.classification||{};
+  const lbl=result.labels||{};
+  const lc=result.low_confidence_fields||[];
+  const dev=rec.device_type||'desktop';
+  const bld=rec.recommendation||{};
+  const exp=rec.explanations||{};
+  const tot=rec.total_price||0;
+  const ucD=(lbl.use_case||'').replace(/_/g,' ');
+  const devD=(lbl.device_type||'');
+  const devC=devD.charAt(0).toUpperCase()+devD.slice(1);
+
+  let h=`
+    <div style="padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:0;">
+      <div class="res-eyebrow">BuildMate — Recommendation Ready</div>
+      <div class="res-headline">${devC} for <em>${ucD}</em></div>
+      <div class="res-tags">
+        <span class="res-tag res-tag-g">${(lbl.budget_tier||'').toUpperCase()} TIER</span>
+        <span class="res-tag res-tag-g">${devC.toUpperCase()}</span>
+        <span class="res-tag res-tag-g">${ucD.toUpperCase()}</span>
+        ${lc.map(f=>`<span class="res-tag res-tag-w">⚠ LOW CONF: ${f.replace(/_/g,' ').toUpperCase()}</span>`).join('')}
+      </div>
+    </div>`;
+
+  // NLP
+ // Classification
+  h+=`<div class="res-sec">Classification</div><div class="res-grid3">`;
+  if(cls && Object.keys(cls).length){
+    for(const [f,d] of Object.entries(cls)){
+      const c=d.confidence||0,p=Math.round(c*100),col=c>=.75?'#c8ff00':c>=.5?'#ffd000':'#ff4455';
+      h+=`<div class="res-cell"><div class="res-ck">${f.replace(/_/g,' ')}</div><div class="res-cv">${(d.label||'').replace(/_/g,' ')}</div><div class="res-bar"><div class="res-fill" id="rf-${f}" style="background:${col};"></div></div><div class="res-pct" style="color:${col};" id="rp-${f}">0%</div></div>`;
+    }
+  } else {
+    [['use_case', lbl.use_case||''], ['device_type', lbl.device_type||''], ['budget_tier', lbl.budget_tier||'']].forEach(([f,v])=>{
+      h+=`<div class="res-cell"><div class="res-ck">${f.replace(/_/g,' ')}</div><div class="res-cv">${v.replace(/_/g,' ')}</div><div class="res-bar"><div class="res-fill" style="width:100%;background:#c8ff00;"></div></div><div class="res-pct" style="color:#c8ff00;">Manual</div></div>`;
+    });
+  }
+  h+=`</div>`;
+
+  // LAPTOP
+  if(dev==='laptop'){
+    h+=`<div class="res-sec">Recommended Laptop</div>
+        <div class="laptop-header" id="lh"><div><div class="res-eyebrow">Selected Machine</div><div class="laptop-name">${bld.name||''}</div></div><div class="laptop-price" id="lp-counter">MAD 0</div></div>
+        <div class="res-grid2">`;
+    [['CPU',bld.cpu],['GPU',bld.gpu],['RAM',`${bld.ram||0}GB`],['Storage',`${bld.storage||0}GB`],['Display',bld.display],['Battery',bld.battery],['Weight',`${bld.weight||0}kg`],['Tier',(bld.tier||'').toUpperCase()]].forEach(([k,v])=>{
+      h+=`<div class="res-cell"><div class="res-ck">${k}</div><div class="res-cv res-cv-sm">${v||'—'}</div></div>`;
+    });
+    h+=`</div>`;
+    if(exp.laptop) h+=`<div class="res-sec">Why This Laptop</div><div class="res-exp">${exp.laptop}</div>`;
+  } else {
+    // DESKTOP
+    h+=`<div class="res-sec">Desktop Build</div>`;
+    ['cpu','gpu','motherboard','ram','storage','psu','case'].forEach(comp=>{
+      const d=bld[comp]||{},e=exp[comp]||'';
+      if(!d.name) return;
+      h+=`<div class="res-brow flip-wrap"><div class="res-btype">${comp}</div><div><div class="res-bname">${d.name}</div><div class="res-bexp">${e}</div></div><div class="res-bprice">${toMAD(d.price||0)}</div></div>`;
+    });
+  }
+
+  // TOTAL
+  h+=`<div class="res-total" id="res-total"><div><div class="res-total-lbl">Total Cost</div><div style="font-family:'DM Mono',monospace;font-size:.52rem;color:var(--muted);margin-top:4px;">${dev==='desktop'?'7 components':'Complete system'}</div></div><div class="res-total-amt" id="total-counter">MAD 0</div></div>`;
+
+  // COMPAT
+  if(compat.status==='not_applicable'){
+    h+=`<div class="res-sec">Compatibility</div><div class="res-exp" style="display:flex;align-items:center;gap:10px;"><div class="res-dot" style="background:#c8ff00;"></div><span style="color:#c8ff00;">NOT REQUIRED — ${compat.reason||''}</span></div>`;
+  } else if(compat.valid!==undefined){
+    const vc=compat.valid?'#c8ff00':'#ff4455',vt=compat.valid?'ALL CHECKS PASSED':'ISSUES DETECTED';
+    h+=`<div class="res-sec">Compatibility — <span style="color:${vc};">${vt}</span></div>`;
+    (compat.passed||[]).forEach(c=>{h+=`<div class="res-crow"><div class="res-dot" style="background:#c8ff00;"></div><span style="color:var(--muted);">${c}</span></div>`;});
+    (compat.failed||[]).forEach(c=>{h+=`<div class="res-crow"><div class="res-dot" style="background:#ff4455;"></div><span style="color:#ff4455;">${c}</span></div>`;});
+    (compat.warnings||[]).forEach(c=>{h+=`<div class="res-crow"><div class="res-dot" style="background:#ffd000;"></div><span style="color:#ffd000;">${c}</span></div>`;});
+    if(compat.estimated_tdp) h+=`<div style="font-family:'DM Mono',monospace;font-size:.52rem;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">ESTIMATED SYSTEM TDP — ${compat.estimated_tdp}W</div>`;
+  }
+
+  h+=`<div class="res-actions">
+  <button class="btn-restart" onclick="restart()">← Start Over</button>
+  <button class="btn-next" onclick="downloadPDF()">↓ Download PDF</button>
+</div>`;
+  el.innerHTML=h;
+
+  // ANIMATE RESULTS
+  setTimeout(()=>{
+    for(const [f,d] of Object.entries(cls)){
+      const c=d.confidence||0,p=Math.round(c*100);
+      const fill=document.getElementById(`rf-${f}`);
+      const pctEl=document.getElementById(`rp-${f}`);
+      if(fill){ setTimeout(()=>{fill.style.width=p+'%';},200); }
+      if(pctEl){ let cur=0; const t=setInterval(()=>{ cur=Math.min(cur+2,p); pctEl.textContent=cur+'%'; if(cur>=p) clearInterval(t); },20); }
+    }
+    stagger('.res-cell',120);
+    stagger('.res-brow',100);
+    setTimeout(()=>stagger('.res-crow',80),600);
+    const totalEl=document.getElementById('total-counter');
+    const laptopEl=document.getElementById('lp-counter');
+    const totalDiv=document.getElementById('res-total');
+    const laptopHeader=document.getElementById('lh');
+    if(totalEl){ setTimeout(()=>{ if(totalDiv) totalDiv.classList.add('show'); animateCount(totalEl,tot); },800); }
+    if(laptopEl){ setTimeout(()=>{ if(laptopHeader) laptopHeader.classList.add('show'); animateCount(laptopEl,tot); },400); }
+  },100);
+}
+
+function downloadPDF() {
+  const result = window._lastResult;
+  if(!result) return;
+  const rec = result.recommendation||{};
+  const compat = result.compatibility||{};
+  const cls = result.classification||{};
+  const lbl = result.labels||{};
+  const dev = rec.device_type||'desktop';
+  const bld = rec.recommendation||{};
+  const exp = rec.explanations||{};
+  const tot = rec.total_price||0;
+  const ucD = (lbl.use_case||'').replace(/_/g,' ');
+  const devC = (lbl.device_type||'').charAt(0).toUpperCase()+(lbl.device_type||'').slice(1);
+  const now = new Date().toLocaleDateString('en-GB');
+
+  let html = `
+  <html><head>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'DM Sans',sans-serif;color:#111;padding:48px;max-width:800px;margin:0 auto;}
+    h1{font-size:2rem;font-weight:900;margin-bottom:4px;}
+    h2{font-size:1.1rem;font-weight:700;margin:28px 0 8px;padding-bottom:6px;border-bottom:1px solid #ddd;}
+    .tag{display:inline-block;padding:3px 10px;border:1px solid #ccc;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;margin-right:6px;border-radius:100px;font-family:'DM Mono',monospace;}
+    .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:.85rem;}
+    .lbl{color:#888;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-family:'DM Mono',monospace;}
+    .total{display:flex;justify-content:space-between;padding:16px;background:#f9f9f9;border:1px solid #eee;margin-top:16px;}
+    .total-amt{font-size:1.8rem;font-weight:900;}
+    .check{font-size:.75rem;padding:4px 0;font-family:'DM Mono',monospace;}
+    .footer{margin-top:48px;font-size:.65rem;color:#aaa;font-family:'DM Mono',monospace;text-align:center;letter-spacing:2px;}
+  </style></head><body>
+  <h1>BuildMate — ${devC} for ${ucD}</h1>
+  <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#888;margin-bottom:12px;">Generated by BRIM · ${now}</div>
+  <div style="margin-bottom:16px;">
+    <span class="tag">${(lbl.budget_tier||'').toUpperCase()} TIER</span>
+    <span class="tag">${devC.toUpperCase()}</span>
+    <span class="tag">${ucD.toUpperCase()}</span>
+  </div>
+  <h2>NLP Classification</h2>`;
+
+  for(const [f,d] of Object.entries(cls)){
+    html+=`<div class="row"><span class="lbl">${f.replace(/_/g,' ')}</span><span>${(d.label||'').replace(/_/g,' ')} — ${Math.round((d.confidence||0)*100)}%</span></div>`;
+  }
+
+  if(dev==='laptop'){
+    html+=`<h2>Recommended Laptop</h2>`;
+    [['Model',bld.name],['CPU',bld.cpu],['GPU',bld.gpu],['RAM',`${bld.ram||0}GB`],['Storage',`${bld.storage||0}GB`],['Display',bld.display],['Battery',bld.battery],['Weight',`${bld.weight||0}kg`]].forEach(([k,v])=>{
+      html+=`<div class="row"><span class="lbl">${k}</span><span>${v||'—'}</span></div>`;
+    });
+    if(exp.laptop) html+=`<h2>Why This Laptop</h2><p style="font-family:'DM Mono',monospace;font-size:.75rem;color:#555;line-height:2;">${exp.laptop}</p>`;
+  } else {
+    html+=`<h2>Desktop Build</h2>`;
+    ['cpu','gpu','motherboard','ram','storage','psu','case'].forEach(comp=>{
+      const d=bld[comp]||{},e=exp[comp]||'';
+      if(!d.name) return;
+      html+=`<div class="row"><span><strong>${comp.toUpperCase()}</strong> — ${d.name}</span><span>${toMAD(d.price||0)}</span></div>`;
+      if(e) html+=`<div style="font-size:.72rem;color:#888;padding:2px 0 8px;font-family:'DM Mono',monospace;">${e}</div>`;
+    });
+  }
+
+  html+=`<div class="total"><div><div class="lbl">Total Cost</div></div><div class="total-amt">${toMAD(tot)}</div></div>`;
+
+  if(compat.valid!==undefined){
+    html+=`<h2>Compatibility — ${compat.valid?'All Checks Passed':'Issues Detected'}</h2>`;
+    (compat.passed||[]).forEach(c=>{html+=`<div class="check">✓ ${c}</div>`;});
+    (compat.failed||[]).forEach(c=>{html+=`<div class="check" style="color:#f00;">✗ ${c}</div>`;});
+    (compat.warnings||[]).forEach(c=>{html+=`<div class="check" style="color:#f90;">⚠ ${c}</div>`;});
+  }
+
+  html+=`<div class="footer">BUILDMATE · BRIM · Yahya ABOUELAZIZ · Mehdi GUELLIDA · Younes EL MAJDOUBI EL IDRISSI · UIR 2025–2026</div>`;
+  html+=`</body></html>`;
+
+  const w = window.open('','_blank');
+  w.document.write(html);
+  w.document.close();
+  setTimeout(()=>w.print(), 500);
+}
+
+function renderErr(msg) {
+  console.log("renderErr called with:", msg);
+  document.getElementById('res-content').innerHTML =
+    `<div class="res-err">⚠ ERROR — ${msg || 'Unknown error, check console'}</div>
+     <div class="res-actions"><button class="btn-restart" onclick="restart()">← Start Over</button></div>`;
+}
+
+function restart() {
+  S.device=null;S.useCase=null;S.budgetTier='Mid';S.budgetMax=1200;S.prefs=[];S.text='';
+  document.querySelectorAll('.dev-c,.uc-c,.pref-i').forEach(e=>e.classList.remove('sel'));
+  document.querySelectorAll('.tier-c').forEach(e=>e.classList.remove('sel'));
+  document.getElementById('tc-Mid').classList.add('sel');
+  document.getElementById('btn1').disabled=true;
+  document.getElementById('btn2').disabled=true;
+  if(document.getElementById('ta-quick')) document.getElementById('ta-quick').value='';
+  updSl(12000);
+  document.getElementById('bsl').value=12000;
+  goTo(0);
+}
+</script>
+</body>
+</html>

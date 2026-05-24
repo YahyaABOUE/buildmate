@@ -1,0 +1,84 @@
+[
+  {
+    "timestamp": "2026-05-23T18:33:59.188338",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a laptop for gaming and university",
+      "device_type_override": "laptop",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:33:59.194362",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a laptop for gaming and university"
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:34:01.050370",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.6097
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.9709
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.7844
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:34:01.050540",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "laptop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:34:01.050634",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "laptop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:34:01.051352",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1200,
+      "within_budget": true
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:34:01.051427",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {}
+  },
+  {
+    "timestamp": "2026-05-23T18:34:18.452712",
+    "agent": "orchestrator",
+    "action": "recommendation_approved",
+    "details": {
+      "approved": true
+    }
+  }
+]

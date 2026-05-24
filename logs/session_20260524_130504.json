@@ -1,0 +1,161 @@
+[
+  {
+    "timestamp": "2026-05-24T13:05:04.767625",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I want a powerful machine learning desktop",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:04.767847",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I want a powerful machine learning desktop"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.673381",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "machine_learning",
+        "confidence": 0.7168
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.9464
+      },
+      "budget_tier": {
+        "label": "high",
+        "confidence": 0.7705
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.673560",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.7168
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.673656",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.673743",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.674440",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1820
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.674782",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "Budget exceeded: Total MAD 18,200 exceeds MAD 12,000 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.674909",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "Budget exceeded: Total MAD 18,200 exceeds MAD 12,000 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.675016",
+    "agent": "orchestrator",
+    "action": "budget_relaxed",
+    "details": {
+      "new_budget_max": 2002.0000000000002
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.675111",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_2",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 2002.0000000000002
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.675494",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1820
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.675815",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.675920",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:05:05.676027",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

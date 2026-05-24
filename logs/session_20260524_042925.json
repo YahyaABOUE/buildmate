@@ -1,0 +1,77 @@
+[
+  {
+    "timestamp": "2026-05-24T04:29:25.873770",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "lijghel;b;sb;rfb s",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:29:25.873941",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "lijghel;b;sb;rfb s"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:29:26.983229",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.2291
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.6886
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.4964
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:29:26.983413",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.2291
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:29:26.983498",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.6886
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:29:26.983644",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.4964
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:29:26.983754",
+    "agent": "orchestrator",
+    "action": "input_rejected",
+    "details": {
+      "reason": "Average confidence too low: 0.47"
+    }
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "timestamp": "2026-05-24T13:10:00.524722",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I want a powerful gaming laptop",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:10:00.526389",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I want a powerful gaming laptop"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:10:00.727110",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.8437
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.7292
+      },
+      "budget_tier": {
+        "label": "high",
+        "confidence": 0.856
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:10:00.727290",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.7292
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:10:00.727395",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "laptop",
+      "budget_tier": "high",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:10:00.727520",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "laptop",
+      "budget_tier": "high",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:10:00.728184",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1200
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:10:00.728298",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "device_type"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:10:00.728415",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

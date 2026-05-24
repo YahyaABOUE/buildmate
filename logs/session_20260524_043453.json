@@ -1,0 +1,171 @@
+[
+  {
+    "timestamp": "2026-05-24T04:34:53.327549",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I want a pc",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:53.327712",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I want a pc"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.167198",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "music_production",
+        "confidence": 0.4212
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.904
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.5162
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.167362",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.4212
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.167456",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.5162
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.167557",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "music_production",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.167635",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "music_production",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.168294",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1540
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.168639",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "Budget exceeded: Total MAD 15,400 exceeds MAD 12,000 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.168759",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "Budget exceeded: Total MAD 15,400 exceeds MAD 12,000 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.168859",
+    "agent": "orchestrator",
+    "action": "budget_relaxed",
+    "details": {
+      "new_budget_max": 1800.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.168955",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_2",
+    "details": {
+      "use_case": "music_production",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1800.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.169385",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1540
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.169667",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.169776",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case",
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:34:54.169888",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

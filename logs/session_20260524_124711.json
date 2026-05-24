@@ -1,0 +1,68 @@
+[
+  {
+    "timestamp": "2026-05-24T12:47:11.014011",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "best laptop",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:47:11.015228",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "best laptop"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:47:11.270859",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "machine_learning",
+        "confidence": 0.3127
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.978
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.3904
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:47:11.271028",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.3127
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:47:11.271109",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.3904
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:47:11.271192",
+    "agent": "orchestrator",
+    "action": "input_rejected",
+    "details": {
+      "reason": "Confidence too low: avg=0.56 use_case=0.31"
+    }
+  }
+]

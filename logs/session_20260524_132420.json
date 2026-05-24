@@ -1,0 +1,77 @@
+[
+  {
+    "timestamp": "2026-05-24T13:24:20.805825",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "",
+      "device_type_override": "desktop",
+      "budget_max": 2500.0,
+      "use_case_override": "machine_learning",
+      "budget_tier_override": "high",
+      "preferences": [
+        "Future-proof build"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:24:20.806425",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 2500.0,
+      "overrides_applied": {
+        "use_case": true,
+        "device_type": true,
+        "budget_tier": true
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:24:20.806880",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 2500.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:24:20.808616",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1820
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:24:20.809866",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:24:20.810417",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:24:20.810725",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

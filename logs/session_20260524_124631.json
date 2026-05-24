@@ -1,0 +1,77 @@
+[
+  {
+    "timestamp": "2026-05-24T12:46:31.281865",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "something for work",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:46:31.282959",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "something for work"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:46:31.491557",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "music_production",
+        "confidence": 0.3946
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.5805
+      },
+      "budget_tier": {
+        "label": "low",
+        "confidence": 0.6213
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:46:31.491768",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.3946
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:46:31.491859",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.5805
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:46:31.491953",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.6213
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:46:31.492044",
+    "agent": "orchestrator",
+    "action": "input_rejected",
+    "details": {
+      "reason": "Confidence too low: avg=0.53 use_case=0.39"
+    }
+  }
+]

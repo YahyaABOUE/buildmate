@@ -1,0 +1,159 @@
+[
+  {
+    "timestamp": "2026-05-23T18:42:57.071899",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a desktop for gaming",
+      "device_type_override": "desktop",
+      "budget_max": 1000.0,
+      "use_case_override": "gaming",
+      "budget_tier_override": "mid",
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.072785",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a desktop for gaming"
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.815573",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.7966
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.9485
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.7099
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.815764",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.7099
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.815862",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1000.0,
+      "overrides_applied": {
+        "use_case": true,
+        "device_type": true,
+        "budget_tier": true
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.815944",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1000.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.816597",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1160
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.816875",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "Budget exceeded: Total $1160 exceeds $1000.0 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.816966",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "Budget exceeded: Total $1160 exceeds $1000.0 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.817053",
+    "agent": "orchestrator",
+    "action": "budget_relaxed",
+    "details": {
+      "new_budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.817137",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_2",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.817483",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1160
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.817790",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:42:57.817892",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:43:30.446770",
+    "agent": "orchestrator",
+    "action": "recommendation_approved",
+    "details": {}
+  }
+]

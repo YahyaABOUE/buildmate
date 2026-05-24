@@ -1,0 +1,64 @@
+{
+  "cpus": [
+    {"id": "cpu_001", "name": "Intel Core i3-12100F", "socket": "LGA1700", "ram_type": "DDR4", "cores": 4, "threads": 8, "base_clock": 3.3, "boost_clock": 4.3, "tdp": 58, "price": 100, "tier": "low", "best_for": ["office", "gaming"]},
+    {"id": "cpu_002", "name": "AMD Ryzen 5 5600", "socket": "AM4", "ram_type": "DDR4", "cores": 6, "threads": 12, "base_clock": 3.5, "boost_clock": 4.4, "tdp": 65, "price": 130, "tier": "low", "best_for": ["gaming", "office", "video_editing"]},
+    {"id": "cpu_003", "name": "Intel Core i5-13400F", "socket": "LGA1700", "ram_type": "DDR4", "cores": 10, "threads": 16, "base_clock": 2.5, "boost_clock": 4.6, "tdp": 65, "price": 200, "tier": "mid", "best_for": ["gaming", "video_editing", "office"]},
+    {"id": "cpu_004", "name": "AMD Ryzen 5 7600X", "socket": "AM5", "ram_type": "DDR5", "cores": 6, "threads": 12, "base_clock": 4.7, "boost_clock": 5.3, "tdp": 105, "price": 250, "tier": "mid", "best_for": ["gaming", "video_editing"]},
+    {"id": "cpu_005", "name": "Intel Core i7-13700K", "socket": "LGA1700", "ram_type": "DDR4", "cores": 16, "threads": 24, "base_clock": 3.4, "boost_clock": 5.4, "tdp": 125, "price": 380, "tier": "high", "best_for": ["gaming", "video_editing", "3d_rendering", "machine_learning"]},
+    {"id": "cpu_006", "name": "AMD Ryzen 9 7900X", "socket": "AM5", "ram_type": "DDR5", "cores": 12, "threads": 24, "base_clock": 4.7, "boost_clock": 5.6, "tdp": 170, "price": 450, "tier": "high", "best_for": ["video_editing", "3d_rendering", "machine_learning", "music_production"]},
+    {"id": "cpu_007", "name": "AMD Ryzen 9 7950X", "socket": "AM5", "ram_type": "DDR5", "cores": 16, "threads": 32, "base_clock": 4.5, "boost_clock": 5.7, "tdp": 170, "price": 700, "tier": "high", "best_for": ["video_editing", "3d_rendering", "machine_learning"]}
+  ],
+  "gpus": [
+    {"id": "gpu_001", "name": "NVIDIA GeForce RTX 3060", "vram": 12, "tdp": 170, "price": 280, "tier": "low", "best_for": ["gaming", "video_editing", "machine_learning"]},
+    {"id": "gpu_002", "name": "AMD Radeon RX 6600", "vram": 8, "tdp": 132, "price": 220, "tier": "low", "best_for": ["gaming"]},
+    {"id": "gpu_000", "name": "AMD Radeon RX 6500 XT", "vram": 4, "tdp": 107, "price": 150, "tier": "low", "best_for": ["gaming", "office"]},
+    {"id": "gpu_003", "name": "NVIDIA GeForce RTX 3070", "vram": 8, "tdp": 220, "price": 400, "tier": "mid", "best_for": ["gaming", "video_editing", "3d_rendering"]},
+    {"id": "gpu_004", "name": "AMD Radeon RX 7700 XT", "vram": 12, "tdp": 245, "price": 380, "tier": "mid", "best_for": ["gaming", "3d_rendering"]},
+    {"id": "gpu_005", "name": "NVIDIA GeForce RTX 4070", "vram": 12, "tdp": 200, "price": 600, "tier": "high", "best_for": ["gaming", "video_editing", "3d_rendering", "machine_learning"]},
+    {"id": "gpu_006", "name": "NVIDIA GeForce RTX 4080", "vram": 16, "tdp": 320, "price": 1000, "tier": "high", "best_for": ["gaming", "video_editing", "3d_rendering", "machine_learning"]},
+    {"id": "gpu_007", "name": "NVIDIA GeForce RTX 4090", "vram": 24, "tdp": 450, "price": 1600, "tier": "high", "best_for": ["machine_learning", "3d_rendering", "video_editing", "gaming"]}
+  ],
+  "motherboards": [
+    {"id": "mb_001", "name": "MSI PRO B660M-A", "socket": "LGA1700", "ram_type": "DDR4", "max_ram": 128, "price": 100, "tier": "low"},
+    {"id": "mb_002", "name": "Gigabyte B550 AORUS Elite", "socket": "AM4", "ram_type": "DDR4", "max_ram": 128, "price": 130, "tier": "low"},
+    {"id": "mb_002b", "name": "ASUS TUF Gaming B550-PLUS", "socket": "AM4", "ram_type": "DDR4", "max_ram": 128, "price": 160, "tier": "mid"},
+    {"id": "mb_003", "name": "ASUS ROG Strix B660-F", "socket": "LGA1700", "ram_type": "DDR4", "max_ram": 128, "price": 200, "tier": "mid"},
+    {"id": "mb_004", "name": "MSI MAG X670E Tomahawk", "socket": "AM5", "ram_type": "DDR5", "max_ram": 128, "price": 280, "tier": "mid"},
+    {"id": "mb_005", "name": "ASUS ROG Maximus Z790", "socket": "LGA1700", "ram_type": "DDR5", "max_ram": 192, "price": 500, "tier": "high"},
+    {"id": "mb_006", "name": "Gigabyte X670E Aorus Master", "socket": "AM5", "ram_type": "DDR5", "max_ram": 192, "price": 450, "tier": "high"}
+  ],
+  "ram": [
+    {"id": "ram_001", "name": "Corsair Vengeance 16GB DDR4 3200MHz", "capacity": 16, "type": "DDR4", "speed": 3200, "price": 45, "tier": "low"},
+    {"id": "ram_002", "name": "Kingston Fury Beast 32GB DDR4 3200MHz", "capacity": 32, "type": "DDR4", "speed": 3200, "price": 80, "tier": "mid"},
+    {"id": "ram_003", "name": "G.Skill Trident Z5 32GB DDR5 6000MHz", "capacity": 32, "type": "DDR5", "speed": 6000, "price": 130, "tier": "mid"},
+    {"id": "ram_004", "name": "Corsair Dominator 64GB DDR5 6000MHz", "capacity": 64, "type": "DDR5", "speed": 6000, "price": 250, "tier": "high"}
+  ],
+  "storage": [
+    {"id": "ssd_001", "name": "Kingston NV2 1TB NVMe SSD", "capacity": 1000, "type": "NVMe", "read_speed": 3500, "price": 60, "tier": "low"},
+    {"id": "ssd_002", "name": "Samsung 970 EVO Plus 1TB NVMe", "capacity": 1000, "type": "NVMe", "read_speed": 3500, "price": 90, "tier": "mid"},
+    {"id": "ssd_003", "name": "Samsung 990 Pro 2TB NVMe", "capacity": 2000, "type": "NVMe", "read_speed": 7450, "price": 180, "tier": "high"},
+    {"id": "ssd_004", "name": "Seagate Barracuda 2TB HDD", "capacity": 2000, "type": "HDD", "read_speed": 190, "price": 50, "tier": "low"}
+  ],
+  "psus": [
+    {"id": "psu_001", "name": "Corsair CV550 550W 80+ Bronze", "wattage": 550, "efficiency": "80+ Bronze", "price": 60, "tier": "low"},
+    {"id": "psu_002", "name": "Seasonic Focus GX-650 650W 80+ Gold", "wattage": 650, "efficiency": "80+ Gold", "price": 100, "tier": "mid"},
+    {"id": "psu_003", "name": "be quiet! Straight Power 850W 80+ Gold", "wattage": 850, "efficiency": "80+ Gold", "price": 140, "tier": "mid"},
+    {"id": "psu_004", "name": "Corsair HX1000 1000W 80+ Platinum", "wattage": 1000, "efficiency": "80+ Platinum", "price": 200, "tier": "high"}
+  ],
+  "cases": [
+    {"id": "case_001", "name": "Cooler Master MasterBox Q300L", "form_factor": "Micro-ATX", "max_gpu_length": 360, "price": 45, "tier": "low"},
+    {"id": "case_002", "name": "NZXT H510", "form_factor": "ATX", "max_gpu_length": 381, "price": 90, "tier": "mid"},
+    {"id": "case_003", "name": "Fractal Design Meshify 2", "form_factor": "ATX", "max_gpu_length": 467, "price": 140, "tier": "mid"},
+    {"id": "case_004", "name": "Lian Li PC-O11 Dynamic EVO", "form_factor": "ATX", "max_gpu_length": 420, "price": 180, "tier": "high"}
+  ],
+  "laptops": [
+    {"id": "lap_001", "name": "Acer Aspire 5", "cpu": "Intel Core i5-1235U", "gpu": "Intel Iris Xe", "ram": 16, "storage": 512, "display": "15.6 FHD", "battery": "57Wh", "weight": 1.8, "price": 450, "tier": "low", "best_for": ["office", "music_production"]},
+    {"id": "lap_002", "name": "Lenovo IdeaPad Gaming 3", "cpu": "AMD Ryzen 5 6600H", "gpu": "NVIDIA RTX 3050", "ram": 16, "storage": 512, "display": "15.6 FHD 120Hz", "battery": "45Wh", "weight": 2.2, "price": 750, "tier": "low", "best_for": ["gaming", "video_editing"]},
+    {"id": "lap_002b", "name": "Lenovo Legion 5", "cpu": "AMD Ryzen 5 7535HS", "gpu": "NVIDIA RTX 4050", "ram": 16, "storage": 512, "display": "15.6 FHD 144Hz", "battery": "80Wh", "weight": 2.4, "price": 950, "tier": "mid", "best_for": ["gaming", "machine_learning", "3d_rendering", "video_editing"]},
+    {"id": "lap_003", "name": "ASUS VivoBook 16X", "cpu": "AMD Ryzen 7 6800H", "gpu": "NVIDIA RTX 3070", "ram": 16, "storage": 1000, "display": "16 WUXGA", "battery": "96Wh", "weight": 2.0, "price": 1100, "tier": "mid", "best_for": ["gaming", "video_editing", "3d_rendering", "machine_learning"]},
+    {"id": "lap_004", "name": "MSI Katana 15", "cpu": "Intel Core i7-12650H", "gpu": "NVIDIA RTX 4060", "ram": 16, "storage": 1000, "display": "15.6 FHD 144Hz", "battery": "52Wh", "weight": 2.1, "price": 1200, "tier": "mid", "best_for": ["gaming", "video_editing", "machine_learning"]},
+    {"id": "lap_005", "name": "Dell XPS 15", "cpu": "Intel Core i7-13700H", "gpu": "NVIDIA RTX 4060", "ram": 32, "storage": 1000, "display": "15.6 OLED Touch", "battery": "86Wh", "weight": 1.86, "price": 1800, "tier": "high", "best_for": ["video_editing", "office", "music_production", "machine_learning"]},
+    {"id": "lap_006", "name": "ASUS ROG Zephyrus G16", "cpu": "AMD Ryzen 9 7945HX", "gpu": "NVIDIA RTX 4080", "ram": 32, "storage": 2000, "display": "16 QHD 240Hz", "battery": "90Wh", "weight": 2.1, "price": 2500, "tier": "high", "best_for": ["gaming", "3d_rendering", "machine_learning", "video_editing"]},
+    {"id": "lap_007", "name": "Lenovo ThinkPad X1 Carbon", "cpu": "Intel Core i7-1365U", "gpu": "Intel Iris Xe", "ram": 32, "storage": 1000, "display": "14 2.8K OLED", "battery": "57Wh", "weight": 1.12, "price": 1900, "tier": "high", "best_for": ["office", "music_production"]}
+  ]
+}

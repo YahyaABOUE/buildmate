@@ -1,0 +1,114 @@
+[
+  {
+    "timestamp": "2026-05-24T04:37:07.012958",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a gaming laptop for traveling\"",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.013590",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a gaming laptop for traveling\""
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.124363",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.6883
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.9711
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.6688
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.124536",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.6883
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.124633",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.6688
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.124747",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "laptop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.124844",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "laptop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.125488",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1200
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.125619",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case",
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:37:07.125731",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

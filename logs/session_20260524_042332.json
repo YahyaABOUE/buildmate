@@ -1,0 +1,114 @@
+[
+  {
+    "timestamp": "2026-05-24T04:23:32.419114",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I want a good working laptop for studies , I'm a CS student",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.419680",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I want a good working laptop for studies , I'm a CS student"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.471019",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "machine_learning",
+        "confidence": 0.6665
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.867
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.6651
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.471386",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.6665
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.471583",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.6651
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.471761",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "laptop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.471916",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "laptop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.472825",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1200
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.472968",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case",
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:23:32.473109",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

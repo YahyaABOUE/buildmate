@@ -1,0 +1,193 @@
+[
+  {
+    "timestamp": "2026-05-23T18:40:33.760932",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a desktop for gaming",
+      "device_type_override": "desktop",
+      "budget_max": 1200.0,
+      "use_case_override": "gaming",
+      "budget_tier_override": "high",
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:33.761794",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a desktop for gaming"
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.713731",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.7966
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.9485
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.7099
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.713920",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.7099
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.714022",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": true,
+        "device_type": true,
+        "budget_tier": true
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.714118",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.714907",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 2290
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.715201",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total $2290 exceeds $1200.0 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.715294",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total $2290 exceeds $1200.0 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.715390",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_2",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.715753",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 2290
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.716053",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total $2290 exceeds $1200.0 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.716157",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total $2290 exceeds $1200.0 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.716267",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_3",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "high",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.716608",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 2290
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.716891",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total $2290 exceeds $1200.0 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-23T18:40:34.717027",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "CPU RAM type mismatch: CPU platform uses DDR4 but motherboard uses DDR5",
+        "Budget exceeded: Total $2290 exceeds $1200.0 budget"
+      ]
+    }
+  }
+]

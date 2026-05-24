@@ -1,0 +1,171 @@
+[
+  {
+    "timestamp": "2026-05-24T04:24:35.398079",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "uizhgjbsd",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.399058",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "uizhgjbsd"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.461920",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "machine_learning",
+        "confidence": 0.2994
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.8205
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.6534
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.462143",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.2994
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.462254",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.6534
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.462356",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.462460",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.463060",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1220
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.463427",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": false,
+      "failed": [
+        "Budget exceeded: Total MAD 12,200 exceeds MAD 12,000 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.463610",
+    "agent": "orchestrator",
+    "action": "compatibility_failed_retrying",
+    "details": {
+      "issues": [
+        "Budget exceeded: Total MAD 12,200 exceeds MAD 12,000 budget"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.463776",
+    "agent": "orchestrator",
+    "action": "budget_relaxed",
+    "details": {
+      "new_budget_max": 1800.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.463927",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_2",
+    "details": {
+      "use_case": "machine_learning",
+      "device_type": "desktop",
+      "budget_tier": "mid",
+      "budget_max": 1800.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.464549",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1220
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.464959",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.465104",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case",
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:24:35.465249",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

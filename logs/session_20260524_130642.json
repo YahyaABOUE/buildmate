@@ -1,0 +1,114 @@
+[
+  {
+    "timestamp": "2026-05-24T13:06:42.709475",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a computer",
+      "device_type_override": "laptop",
+      "budget_max": 5000.0,
+      "use_case_override": "3d_rendering",
+      "budget_tier_override": "high",
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.710203",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a computer"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.769921",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "office",
+        "confidence": 0.4861
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.7362
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.8329
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.770176",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.4861
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.770285",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.7362
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.770403",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "3d_rendering",
+      "device_type": "laptop",
+      "budget_tier": "high",
+      "budget_max": 5000.0,
+      "overrides_applied": {
+        "use_case": true,
+        "device_type": true,
+        "budget_tier": true
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.770509",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "3d_rendering",
+      "device_type": "laptop",
+      "budget_tier": "high",
+      "budget_max": 5000.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.771110",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 2500
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.771232",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case",
+        "device_type"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T13:06:42.771345",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

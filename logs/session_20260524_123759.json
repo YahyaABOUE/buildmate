@@ -1,0 +1,15 @@
+[
+  {
+    "timestamp": "2026-05-24T12:37:59.675844",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "Je veux un PC gamer",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  }
+]

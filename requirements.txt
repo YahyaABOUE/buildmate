@@ -1,0 +1,17 @@
+# Agent framework
+crewai
+
+# LLM backend
+google-generativeai
+
+# Deep learning
+torch
+transformers
+scikit-learn
+
+# UI
+gradio
+
+# Utilities
+python-dotenv
+datasets

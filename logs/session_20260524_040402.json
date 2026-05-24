@@ -1,0 +1,114 @@
+[
+  {
+    "timestamp": "2026-05-24T04:04:02.959101",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a computer",
+      "device_type_override": "laptop",
+      "budget_max": 1100.0,
+      "use_case_override": "gaming",
+      "budget_tier_override": "mid",
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:02.959261",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a computer"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:03.874054",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "office",
+        "confidence": 0.4861
+      },
+      "device_type": {
+        "label": "laptop",
+        "confidence": 0.7362
+      },
+      "budget_tier": {
+        "label": "mid",
+        "confidence": 0.8329
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:03.874210",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "use_case",
+      "confidence": 0.4861
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:03.874304",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.7362
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:03.874396",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "laptop",
+      "budget_tier": "mid",
+      "budget_max": 1100.0,
+      "overrides_applied": {
+        "use_case": true,
+        "device_type": true,
+        "budget_tier": true
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:03.874484",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "laptop",
+      "budget_tier": "mid",
+      "budget_max": 1100.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:03.875101",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 1100
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:03.875211",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "use_case",
+        "device_type"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T04:04:03.875315",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]

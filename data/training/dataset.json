@@ -1,0 +1,1082 @@
+[
+  {
+    "text": "I want a cheap gaming desktop for esports titles and schoolwork.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a budget laptop that can handle League of Legends smoothly.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me an affordable PC for Fortnite and Valorant.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I'm looking for a portable gaming machine under a tight budget.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Can you suggest a low-cost desktop for casual gaming and streaming?",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I travel a lot but still want to play Apex Legends on medium settings.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need an entry-level gaming tower for Minecraft mods and Rocket League.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Looking for a cheap gaming notebook mainly for FIFA and indie games.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Give me a starter desktop build for 1080p gaming.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I need an inexpensive laptop that can run CS2 decently.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I want a balanced gaming desktop for 1440p gaming.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a gaming laptop for AAA games and university.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a solid rig for Warzone and Elden Ring.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Looking for a laptop that can handle Cyberpunk smoothly.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I need a mid-range gaming PC with good cooling.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Portable gaming setup for long trips and competitive shooters.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Recommend a desktop for gaming and occasional streaming.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I want a sleek laptop for gaming after work.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Can you build me something strong for 144Hz gaming?",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a gaming laptop with decent battery life too.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I want an extreme gaming desktop with ray tracing maxed out.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a premium gaming laptop for ultra settings and portability.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build me a monster rig for 4K gaming and streaming.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I need a top-tier gaming notebook for AAA titles.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Give me the best desktop possible for competitive gaming.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for a flagship gaming laptop with RTX graphics.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I want a powerful gaming tower for triple-monitor setups.",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a premium portable machine for high-refresh gaming.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Can you recommend a no-compromise gaming desktop?",
+    "use_case": "gaming",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I need a luxury gaming laptop for VR and modern games.",
+    "use_case": "gaming",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I need a cheap PC for editing YouTube videos.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Looking for an affordable laptop for basic Premiere Pro work.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me a budget editing desktop for TikTok content.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a lightweight laptop for editing short videos on the go.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I edit 1080p footage and need something inexpensive.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Can you suggest a cheap editing notebook for social media work?",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a starter desktop for DaVinci Resolve.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Affordable laptop for basic video production and travel.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I want a low-cost workstation for editing family videos.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a budget creator laptop for light editing tasks.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me a desktop for 4K video editing.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a creator laptop for Premiere Pro and After Effects.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I work with YouTube content and need a reliable editing PC.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Portable editing setup for travel documentaries.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Looking for a balanced workstation for video production.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a laptop capable of smooth timeline scrubbing.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Can you recommend a desktop for editing and rendering videos?",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I need a laptop for editing wedding videos professionally.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a mid-range editing tower with lots of storage.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a creator laptop for Adobe workflows.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I need a high-end workstation for cinema-grade editing.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for the best laptop for 8K editing work.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build me an elite desktop for massive video projects.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a premium mobile workstation for documentary production.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I edit RAW footage daily and need extreme performance.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Can you suggest a flagship creator laptop for editing?",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a top-tier editing desktop with huge RAM capacity.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I want a luxury laptop for professional video production.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build a beast workstation for Adobe and Resolve workloads.",
+    "use_case": "video_editing",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need an ultra-powerful editing notebook with color accuracy.",
+    "use_case": "video_editing",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I want a cheap desktop to learn AI and Python.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a budget laptop for data science classes.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Looking for an affordable machine for TensorFlow practice.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I need a portable setup for beginner ML projects.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Can you build a low-cost PC for Kaggle competitions?",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need an entry-level laptop for AI coursework.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I want a simple desktop for experimenting with neural networks.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Looking for a cheap notebook for machine learning basics.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a starter PC for PyTorch training.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I need a budget portable computer for coding AI models.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me a desktop for deep learning experiments.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a laptop with CUDA support for AI development.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I train models locally and need strong GPU performance.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Portable workstation for machine learning research.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Looking for a balanced AI development desktop.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a laptop for computer vision projects and coding.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Can you recommend a PC for local LLM experimentation?",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I need a machine learning notebook with good thermals.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a workstation for neural network training.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a creator laptop for AI research and travel.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I need a monster desktop for large AI models.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for the best laptop for advanced ML workflows.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build a top-tier workstation for deep learning training.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a premium AI laptop with lots of VRAM.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I work with massive datasets and GPU acceleration.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Can you suggest a flagship notebook for machine learning?",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a professional desktop for transformer training.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I need a high-end portable workstation for AI research.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build me a powerful compute rig for neural rendering.",
+    "use_case": "machine_learning",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for an elite laptop for CUDA-heavy workloads.",
+    "use_case": "machine_learning",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a cheap desktop for spreadsheets and emails.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Looking for an affordable laptop for office work.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I need a basic PC for browsing and documents.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Can you recommend a budget notebook for remote work?",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me a simple office desktop.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a lightweight laptop for Microsoft Office and Zoom.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I want an inexpensive computer for admin tasks.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a cheap portable PC for emails and meetings.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Looking for a low-cost workstation for accounting.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need an affordable laptop for office productivity.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I need a reliable desktop for multitasking at work.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Looking for a business laptop with strong battery life.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a workstation for office productivity and meetings.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a laptop for professional office use and travel.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I use Excel heavily and need a smooth desktop setup.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Can you recommend a mid-range office notebook?",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a productivity desktop with dual-monitor support.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Looking for a portable business machine with quiet fans.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a dependable office tower for daily work.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a professional laptop for office workflows.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I need a premium office desktop with excellent multitasking.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for a luxury business laptop for executives.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build me a silent high-end workstation for office productivity.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a flagship laptop for business travel and presentations.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I want a premium desktop setup for finance and analytics.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Can you suggest an ultra-premium notebook for work?",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a top-tier productivity desktop with lots of RAM.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I travel internationally and need an elite office laptop.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build a premium workstation for enterprise office tasks.",
+    "use_case": "office",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for a powerful business ultrabook.",
+    "use_case": "office",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a cheap desktop for Blender practice.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Looking for an affordable laptop for beginner 3D work.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me a budget workstation for simple renders.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a low-cost portable machine for Maya classes.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I want an entry-level desktop for learning 3D modeling.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Can you recommend a budget notebook for Blender?",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a cheap PC for light rendering and animation.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Affordable laptop for 3D design school projects.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me a starter rendering desktop.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a portable computer for beginner rendering tasks.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I need a desktop for Blender and Unreal Engine.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Looking for a laptop capable of serious 3D rendering.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a balanced workstation for animation projects.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a creator laptop for Maya and Cinema 4D.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I render architectural scenes and need strong GPU power.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Can you recommend a rendering notebook for travel?",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a workstation desktop for 3D assets and textures.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Portable setup for rendering and CAD workflows.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a mid-range rendering tower with fast storage.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a reliable laptop for 3D animation work.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I need an elite workstation for cinematic rendering.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for the best laptop for advanced 3D workflows.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build me a monster rendering desktop with massive GPU power.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a premium mobile workstation for VFX projects.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I work with huge Blender scenes and simulations.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Can you suggest a flagship rendering notebook?",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a top-tier desktop for GPU rendering and compositing.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I want an ultra-powerful laptop for 3D production.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build me a professional rendering workstation for studios.",
+    "use_case": "3d_rendering",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for a luxury notebook for advanced CGI work.",
+    "use_case": "3d_rendering",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a cheap desktop for recording music at home.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Looking for an affordable laptop for FL Studio.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me a budget PC for beat making.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a portable machine for music production classes.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I need a simple desktop for recording vocals and mixing.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Can you recommend a cheap laptop for Ableton Live?",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need an inexpensive workstation for audio editing.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Affordable notebook for beginner music creation.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Build me a low-cost DAW desktop.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "Need a budget portable setup for recording demos.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "low"
+  },
+  {
+    "text": "I need a desktop for serious music production.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Looking for a laptop for Ableton and plugin-heavy sessions.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a balanced workstation for mixing and mastering.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a creator laptop for audio production and travel.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I work with many VSTs and need stable performance.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Can you recommend a reliable notebook for studio work?",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a quiet desktop for music recording.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Portable setup for producing tracks while traveling.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Build me a music production tower with lots of storage.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "Need a professional laptop for FL Studio and mixing.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "mid"
+  },
+  {
+    "text": "I need a premium desktop studio workstation.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for the best laptop for professional music production.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build me a top-tier DAW workstation with silent cooling.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a flagship notebook for audio engineering.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I run huge orchestral sample libraries and plugins.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Can you suggest a luxury laptop for studio production?",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Need a high-end desktop for mixing, mastering, and recording.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "I want an ultra-premium portable workstation for music.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Build me a powerful studio desktop for complex sessions.",
+    "use_case": "music_production",
+    "device_type": "desktop",
+    "budget_tier": "high"
+  },
+  {
+    "text": "Looking for an elite music production notebook.",
+    "use_case": "music_production",
+    "device_type": "laptop",
+    "budget_tier": "high"
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "timestamp": "2026-05-24T12:41:12.262562",
+    "agent": "orchestrator",
+    "action": "pipeline_started",
+    "details": {
+      "free_text": "I need a gaming PC, budget is 500 dirhams",
+      "device_type_override": null,
+      "budget_max": 1200.0,
+      "use_case_override": null,
+      "budget_tier_override": null,
+      "preferences": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.263550",
+    "agent": "nlp_agent",
+    "action": "classification_started",
+    "details": {
+      "input": "I need a gaming PC, budget is 500 dirhams"
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.328889",
+    "agent": "nlp_agent",
+    "action": "classification_complete",
+    "details": {
+      "use_case": {
+        "label": "gaming",
+        "confidence": 0.8392
+      },
+      "device_type": {
+        "label": "desktop",
+        "confidence": 0.732
+      },
+      "budget_tier": {
+        "label": "low",
+        "confidence": 0.5609
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.329090",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "device_type",
+      "confidence": 0.732
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.329196",
+    "agent": "orchestrator",
+    "action": "low_confidence_detected",
+    "details": {
+      "field": "budget_tier",
+      "confidence": 0.5609
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.329300",
+    "agent": "orchestrator",
+    "action": "labels_resolved",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "low",
+      "budget_max": 1200.0,
+      "overrides_applied": {
+        "use_case": false,
+        "device_type": false,
+        "budget_tier": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.329395",
+    "agent": "recommendation_agent",
+    "action": "recommendation_attempt_1",
+    "details": {
+      "use_case": "gaming",
+      "device_type": "desktop",
+      "budget_tier": "low",
+      "budget_max": 1200.0
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.330129",
+    "agent": "recommendation_agent",
+    "action": "recommendation_complete",
+    "details": {
+      "total_price": 690
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.330474",
+    "agent": "compatibility_agent",
+    "action": "compatibility_complete",
+    "details": {
+      "valid": true,
+      "failed": []
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.330581",
+    "agent": "orchestrator",
+    "action": "hitl_checkpoint_reached",
+    "details": {
+      "low_confidence_fields": [
+        "device_type",
+        "budget_tier"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-24T12:41:12.330692",
+    "agent": "orchestrator",
+    "action": "hitl_skipped",
+    "details": {
+      "reason": "UI handles approval"
+    }
+  }
+]
