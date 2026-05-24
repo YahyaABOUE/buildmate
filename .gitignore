@@ -1,1 +1,2 @@
 models/checkpoints/best_model.pt
+.env
