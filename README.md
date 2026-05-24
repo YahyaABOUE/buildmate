@@ -1,8 +1,6 @@
-**`README.md`**
-
-```markdown
-# BuildMate 
+# BuildMate 🖥️
 ### Multi-Agent AI PC Recommendation System
+
 **BRIM** — Yahya ABOUELAZIZ · Mehdi GUELLIDA · Younes EL MAJDOUBI EL IDRISSI  
 S8 Integrated Project · AI & Big Data Program · UIR 2025–2026  
 Supervisor: Prof. Hakim Hafidi
@@ -11,13 +9,7 @@ Supervisor: Prof. Hakim Hafidi
 
 ## Overview
 
-BuildMate is a multi-agent AI system that helps users find the most suitable PC build or laptop according to their needs, preferences, and budget.
-
-The system combines:
-- **Natural language understanding** via a fine-tuned DistilBERT model
-- **Multi-agent orchestration** via CrewAI
-- **Deterministic compatibility checking** via hardware rules
-- **Human-in-the-loop** approval checkpoint
+BuildMate is a multi-agent AI system that helps users find the most suitable PC build or laptop according to their needs, preferences, and budget. The system combines natural language understanding, deep learning, deterministic recommendation logic, and multi-agent orchestration to deliver explainable, validated hardware recommendations.
 
 ---
 
@@ -26,9 +18,13 @@ The system combines:
 ```
 User Input (free text or structured)
         ↓
+Language Check (English only)
+        ↓
 NLP Classification Agent (DistilBERT)
         ↓
-Orchestrator (CrewAI)
+Confidence Check (threshold filtering)
+        ↓
+Orchestrator — Override Logic
         ↓
 Recommendation Agent → Hardware JSON Database
         ↓
@@ -38,6 +34,8 @@ Human-in-the-Loop Checkpoint
         ↓
 Final Recommendation
 ```
+
+---
 
 ## Tech Stack
 
@@ -62,7 +60,7 @@ buildmate/
 │       └── dataset.json          # NLP training data
 ├── models/
 │   ├── train_classifier.py       # DistilBERT training script
-│   └── checkpoints/              # Saved model weights
+│   └── checkpoints/              # Saved model weights (see below)
 ├── agents/
 │   ├── orchestrator.py           # Main pipeline coordinator
 │   ├── nlp_agent.py              # NLP classification agent
@@ -88,7 +86,7 @@ buildmate/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-repo/buildmate.git
+git clone https://github.com/YahyaABOUE/buildmate.git
 cd buildmate
 ```
 
@@ -108,25 +106,28 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 Get a free Gemini API key at [aistudio.google.com](https://aistudio.google.com)
 
-### 4. Train the DistilBERT model
+### 4. Download the trained model
+
+Download `best_model.pt` from [Google Drive link] and place it in `models/checkpoints/`.
+
+### 5. Train the model yourself (optional)
 
 ```bash
 python3.11 models/train_classifier.py
 ```
 
-Training takes ~5 minutes on Apple Silicon (MPS) or CPU.  
-The trained model will be saved to `models/checkpoints/best_model.pt`.
+Training takes ~5 minutes on Apple Silicon (MPS) or CPU.
 
-### 5. Run the application
+### 6. Run the application
 
 ```bash
 python3.11 ui/app.py
 ```
 
-This will open the UI at `http://localhost:3000/index.html`  
-The Gradio API runs at `http://localhost:7860`
+Opens the UI at `http://localhost:3000/index.html`  
+Gradio API runs at `http://localhost:7860`
 
-### 6. (Optional) Terminal mode
+### 7. Terminal mode (optional)
 
 ```bash
 python3.11 main.py
@@ -136,56 +137,68 @@ python3.11 main.py
 
 ## Model Performance
 
-The DistilBERT classifier was fine-tuned on 300 synthetic PC request samples for 10 epochs.
+Fine-tuned on 300 synthetic samples · 10 epochs · AdamW lr=2e-5 · PyTorch 2.0
 
-| Task | Accuracy |
-|---|---|
-| Use Case Classification | 72% |
-| Device Type Classification | 92% |
-| Budget Tier Classification | 89% |
+| Task | Accuracy | Notes |
+|---|---|---|
+| Device Type | 92% | Desktop vs Laptop |
+| Budget Tier | 89% | Low / Mid / High |
+| Use Case | 72% | 6 classes |
 
 ---
 
 ## Agents
 
-### 1. NLP Classification Agent
-Uses a fine-tuned DistilBERT model to classify user free-text input into:
-- `use_case`: gaming, video_editing, machine_learning, office, 3d_rendering, music_production
-- `device_type`: desktop, laptop
-- `budget_tier`: low, mid, high
+### 🤖 NLP Classification Agent
+Uses fine-tuned DistilBERT to classify free-text into `use_case`, `device_type`, and `budget_tier` with confidence scores. Low confidence inputs are rejected.
 
-### 2. Recommendation Agent
-Queries the hardware JSON database and selects the best matching components or laptop based on use case, device type, and budget tier.
+### ⚙️ Recommendation Agent
+Queries the hardware JSON database and selects optimal components or laptop. Every selection includes a detailed technical explanation.
 
-### 3. Compatibility Agent
-Runs deterministic hardware compatibility checks:
-- CPU socket vs motherboard socket
-- RAM type compatibility
-- PSU wattage vs estimated TDP
-- Budget validation
+### 🔍 Compatibility Agent
+Runs deterministic hardware validation:
+- CPU socket ↔ Motherboard socket
+- RAM type (DDR4/DDR5) ↔ CPU platform and Motherboard
+- PSU wattage ≥ CPU TDP + GPU TDP + 100W overhead
+- RAM capacity ≤ Motherboard maximum
+- Total price ≤ User budget
 
-### 4. Orchestrator
-Coordinates all agents, manages retries, detects low confidence, handles errors, logs every action, and manages the HITL checkpoint.
+### 🧠 Orchestrator
+Coordinates the full pipeline. Enforces override hierarchy (explicit user selections always win over NLP predictions), manages retries, logs all actions, and manages the HITL checkpoint.
 
 ---
 
 ## Hardware Database
 
-The system uses a curated JSON database of real components:
-- 7 CPUs (Intel & AMD, DDR4/DDR5)
-- 7 GPUs (NVIDIA & AMD, low/mid/high tier)
-- 6 Motherboards (LGA1700 & AM4/AM5)
-- 4 RAM kits (DDR4 & DDR5)
-- 4 Storage options (NVMe & HDD)
-- 4 PSUs (550W–1000W)
-- 4 Cases
-- 8 Laptops
+| Category | Count | Coverage |
+|---|---|---|
+| CPUs | 7 | Intel LGA1700 · AMD AM4/AM5 |
+| GPUs | 8 | NVIDIA RTX 3060–4090 · AMD RX series |
+| Motherboards | 7 | DDR4 & DDR5 · 3 sockets |
+| RAM | 4 | DDR4/DDR5 · 16–64GB |
+| Storage | 4 | NVMe 1–2TB · HDD |
+| PSUs | 4 | 550W–1000W · 80+ rated |
+| Cases | 4 | Micro-ATX & ATX |
+| Laptops | 8 | All tiers and use cases |
+
+---
+
+## Error Handling
+
+| Input | Behavior |
+|---|---|
+| Gibberish | Rejected — too ambiguous |
+| French / Arabic | Rejected — English only |
+| Too vague | Rejected — confidence below threshold |
+| Contradictory | Low confidence warning, resolved intelligently |
+| Budget too low | Builds cheapest viable configuration |
+| Compatibility failure | Automatic retry with relaxed budget (3 attempts) |
 
 ---
 
 ## Logging
 
-Every agent action is logged with timestamps to `logs/` in JSON format:
+Every agent action is logged with ISO timestamps to `logs/` in JSON format:
 
 ```json
 {
@@ -202,16 +215,6 @@ Every agent action is logged with timestamps to `logs/` in JSON format:
 
 ---
 
-## Error Handling
-
-- **Gibberish input** → rejected with clear error message
-- **French/Arabic input** → rejected, English only
-- **Too vague input** → rejected if average NLP confidence < 55%
-- **Compatibility failure** → automatic retry with relaxed budget (up to 3 attempts)
-- **Missing inputs** → validated before pipeline runs
-
----
-
 ## Academic Integrity
 
 LLM assistants were used as tools during development. All code was reviewed, understood, and can be explained in full during the oral defense.
@@ -221,4 +224,3 @@ LLM assistants were used as tools during development. All code was reviewed, und
 ## License
 
 Academic project — UIR 2025–2026. Not for commercial use.
-```
